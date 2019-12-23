@@ -36,11 +36,11 @@ Okay, port 1337 is open and it looks really interesting for a CTF ! Let's see wh
 
 We have a prompt waiting for a secret code ... I started trying to send (a lot) of junk data, I started to wondering how could I exploit this program blindly. Maybe it's time-based ? The program might not be well implemented and could process take more times to process valid char ?!
 
-I found a script wrote by [Sakiir](https://twitter.com/sakiirsecurity) which is doing exctacly what I wanted : https://github.com/SakiiR/timeauth 
+I found a script wrote by [Sakiir](https://twitter.com/sakiirsecurity) which is doing exactly what I wanted : https://github.com/SakiiR/timeauth 
 
 I obviously had to customize the script but after few minutes I got the following result : 
 
-![pwned](https://github.com/)
+![pwned](https://raw.githubusercontent.com/YanZaX/writeups/master/yogosha/images/2019-12-23_18h24_07.png)
 
 I logged with the password : **pAsSwOrd159!** and after few retries I found an interesting user : **noel (you)**
 

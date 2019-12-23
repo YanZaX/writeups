@@ -46,4 +46,50 @@ I logged with the password : **pAsSwOrd159!** and after few retries I found an i
 
 ### Third Step - Pivoting and exploiting alternatives services
 
-I didn't mentioned it, but while I was scanning ports, I did some 
+I didn't mentioned it, but while I was scanning ports, I did some recon against the webserver and noticed that it was a wordpress and the login page was available : 
+
+* http://3.19.111.121/wp-login.php
+
+* I was also able to browse all posts by browsing the WordPress API :  http://3.19.111.121/?rest_route=/wp/v2/posts/ notice that /wp-json/ was restricted.
+
+So let's try to use the credentials we found earlier on this login form ! 
+It worked but we are immediatly redirected to the home page, it looks like the admin interface is disabled ! 
+
+We had to find another way so I started to bruteforce in order to find common wordpress plugin and I found a directory listing under http://3.19.111.121/wp-content/plugins/.
+
+Under the ACF (Advanced Custom Fields) folder, I found a zip file that looks like the latest version of ACF and probably the one running on this wordpress.
+
+I went on the ACF website and downloaded the same version : https://www.advancedcustomfields.com/downloads/
+
+![ACF](https://github.com/)
+
+Then I did a diff between the two folders : 
+
+![DIFF](https://github.com/)
+
+I found this piece of code quite interesting, after digging inside the source I was able to understand what it does : 
+
+* If logged with the user *noel* and if the parameter *debug* is set to 1 then the parameter *upd* is called.
+* The parameter *udp* is used to make a request and is printed on the page.
+
+Okay it looks like we got an SSRF (Server Side Request Forgery), let's see if I can reach a burp collaborator instance : 
+
+![burp collaborator](https://github.com/)
+
+Cool it worked ! let's try to find something interesting browsable only from localhost : 
+
+I ran a quick burp intruder and found that **server-status** was available !
+
+![server-status](https://github.com/)
+
+I guess the challenge is not over, the next step is leading us to the darknet.
+
+###  Fourth Step - The Dark Net
+
+
+
+
+
+
+
+

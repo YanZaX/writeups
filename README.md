@@ -86,10 +86,53 @@ I guess the challenge is not over, the next step is leading us to the darknet.
 
 ###  Fourth Step - The Dark Net
 
+Let's head to the website : http://bacq7ip6nzdyhb3o.onion
 
+![darknet](https://github.com/)
 
+Before starting to dig on the login form, I tried to trigger an error in order to find the real IP and it worked : 
 
+![realIP](https://github.com)
 
+We have our new target, after playing around the login form I quickly noticed interesting verbose errors : 
 
+![xpath](https://github.com)
 
+Yes, we probably have XPath injection here ! We are guessing that we probably have something like this in the backend : 
+```
+$xpath = "//user[user='" . $_POST['user'] . "' and password='" . $_POST['pass'] . "']";
+```
+ 
+So let's use **' or '1'='1** on the user and password field to craft the following query :
 
+```
+$xpath = "//user[user='' or '1'='1' and pass='' or '1'='1']";
+```
+
+And it worked ! We are logged as admin and have access to this interesting page : 
+
+![logged](https://github.com)
+
+We keep note of the internal IP address which might be our next target. The page also indicate a txt file containing some juicy notes from a hacker : http://3.13.238.49/b%C4%81Ckup%C4%93/Target/172.28.13.37/payload/hack.txt 
+
+> The server was just using another container to back up and access its data
+
+### Last Step - Pwn the backup server
+
+Let's use our previous SSRF to find an open port on the new target. After scanning all ports, I found out that port 3306 (mysql) and 80 (http) was open !
+Let's see what's available on port 80 :
+
+![Backup](https://github.com)
+
+We have a backup server where we can force this client to connect to a mysql server of our choice. I found an interesting article which explains how we can read arbitrary files on a server by deploying a rogue mysql server :
+
+https://lightless.me/archives/read-mysql-client-file.html
+
+I found the following mysql rogue server available on github : https://github.com/Gifts/Rogue-MySql-Server
+
+I quickly set up the Rogue server on my own VPS and forced the backup server to connect to my Rogue MySQL Server.
+And it worked, I received all the **/etc/passwd** content in my log file and also the flag ! 
+
+![flag](https://github.com)
+
+>Yogosha{4t_christma5_all_r0ads_Le4d_hOme}

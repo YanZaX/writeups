@@ -47,7 +47,7 @@ If you read the whole Github project, the attack is nicely explained :
 
 ### 2 - CVE-2019-5418 
 
-The first step is to test if the application is vulnerable to CVE-2019-5418, which is a LFI via a specific crafted header, you can find a technical blog on this CVE here : [https://zhuzhuuu.com/pentesting-lab/2019-04/](https://zhuzhuuu.com/pentesting-lab/2019-04/)  
+The first step is to test if the application is vulnerable to CVE-2019-5418, which is a LFI via a specific crafted header, you can find a technical blog on this CVE here : [https://zhuzhuuu.com/pentesting-lab/2019-04/](https://zhuzhuuu.com/pentesting-lab/2019-04/ruby-on-rail-arbitrary-file-content-disclosure-CVE-2019-5418)  
 Let's test it on our challenge : 
 
 ![LFI /etc/passwd](https://raw.githubusercontent.com/YanZaX/writeups/master/barbhack-2023/TchouTchou/images/2023-08-28_20-33.png)

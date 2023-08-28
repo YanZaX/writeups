@@ -31,7 +31,7 @@ Crontab
 
 ### 1 - Understanding the challenge 🧠
 
-The application itself, doesn't show anything beside this little train is ASCI. I tried to poke around but without any success first.  
+The application itself, doesn't show anything beside this little train in ASCII. I tried to poke around but without any success first.  
 After googling a bit on "Ruby On Rails" vulnerabilities, since we know that the application run with rails, we can quickly find this repository : [https://github.com/mpgn/Rails-doubletap-RCE ](https://github.com/mpgn/Rails-doubletap-RCE)
 
 > Fun fact, MPGN is actually the creator of this challenge !
@@ -267,7 +267,7 @@ And finally it worked :
 
 ![Triggering the RCE](https://raw.githubusercontent.com/YanZaX/writeups/master/barbhack-2023/TchouTchou/images/2023-08-28_21-39.png)
 
-We decided to first use a sleep because the cache is still poisoned (from the request where we can the keys), the docker where the challenge is run couldn't communicate with outside.
+We decided to first use a sleep because the cache is still poisoned (from the first request when we retrieve the keys), the docker where the challenge is run couldn't communicate with outside.
 
 ### 6 - Exfiltrate the flag
 

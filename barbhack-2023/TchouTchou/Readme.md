@@ -223,7 +223,7 @@ The process is not very smooth because we needed to copy paste the key & the cre
 ![Decrypting the credentials](https://raw.githubusercontent.com/YanZaX/writeups/master/barbhack-2023/TchouTchou/images/2023-08-28_21-31.png)
 
 
-### 5 - Exploit CVE-2019-5420
+### 5 - Exploit CVE-2019-5420 🎯
 
 Once this part is done, the rest is a piece of cake 🎂. We just need to send a request to a specific ressource containing our payload to trigger the RCE ! This part can be found on the initial POC from line 67 : [https://github.com/mpgn/Rails-doubletap-RCE/blob/master/exploit.rb](https://github.com/mpgn/Rails-doubletap-RCE/blob/master/exploit.rb)
 

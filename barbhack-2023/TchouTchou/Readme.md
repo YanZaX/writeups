@@ -280,6 +280,8 @@ We first ran the command : `system('bash','-c','ls > tmp/pwn.txt')` in order to 
 
 Big thanks to [@Kuromatae](https://twitter.com/Kuromatae666) for spending hours on this challenge with me :> and also big thanks to the whole "senior" team `Gold Or Hack` : [@Agarri_FR](https://twitter.com/Agarri_FR), [@TheLaluka](https://twitter.com/TheLaluka), [@Gromak123_Sec](https://twitter.com/Gromak123_Sec), [@FreeSec](https://twitter.com/payothl), @drlno (I don't have your handle sorry 😬)
 
+I failed last year on this challenge and lost of time and for this... I still hate [@mpgn](https://twitter.com/mpgn_x64) 😡
+
 
 <details>
 <summary>Full ruby script for part 4 to 6: </summary>

@@ -281,7 +281,8 @@ We first ran the command : `system('bash','-c','ls > tmp/pwn.txt')` in order to 
 Big thanks to @Kuromatae for spending hours on this challenge with me :> and also big thanks to the whole "senior" team `Gold Or Hack` : @Agarri_FR, @TheLaluka, @Gromak123_Sec, @payothl, @drlno (I don't have your handle sorry 😬)
 
 
-## Full ruby script for part 4 to 6: 
+<details open>
+<summary>Full ruby script for part 4 to 6: </summary>
 
 ```ruby
 require 'net/http'
@@ -358,3 +359,4 @@ else
     abort
 end
 ```
+</details>

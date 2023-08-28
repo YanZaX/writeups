@@ -269,14 +269,14 @@ And finally it worked :
 
 We decided to first use a sleep because the cache is still poisoned (from the first request when we retrieve the keys), the docker where the challenge is run couldn't communicate with outside.
 
-### 6 - Exfiltrate the flag
+### 6 - Exfiltrate the flag 🚩
 
 The last part was quite easy, instead of doing a sleep we modified the exploit to write the output of our commands in temporary file that we can retrieve with the LFI. The files are not removed after each restart so we just had to wait 3 minutes and retrieve our file.
 We first ran the command : `system('bash','-c','ls > tmp/pwn.txt')` in order to find an hidden directory `ran0dom0_directoy_126` then we used to LFI to read the flag : 
 
 ![Flagged !](https://raw.githubusercontent.com/YanZaX/writeups/master/barbhack-2023/TchouTchou/images/2023-08-28_21-45.png)
 
-### 7 - Ending words
+### 7 - Ending words ❤️
 
 Big thanks to [@Kuromatae](https://twitter.com/Kuromatae666) for spending hours on this challenge with me :> and also big thanks to the whole "senior" team `Gold Or Hack` : [@Agarri_FR](https://twitter.com/Agarri_FR), [@TheLaluka](https://twitter.com/TheLaluka), [@Gromak123_Sec](https://twitter.com/Gromak123_Sec), [@FreeSec](https://twitter.com/payothl), @drlno (I don't have your handle sorry 😬)
 
